@@ -25,16 +25,13 @@ body{
     box-sizing: border-box;
 }
 
-.container div{
-    padding: 10px;
-    border: 1px solid black;
-}
-
 .content-m{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-rows:  repeat(4, 1fr);
     gap:10px;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .content-l{
@@ -44,6 +41,8 @@ body{
     grid-row-start: 0;
     grid-column-start: 1;
     grid-column-end: 4;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 .labels{
@@ -56,6 +55,10 @@ body{
 .textmoney{
     font-size: 1.5vw;
     grid-row-start: 2;
+}
+.textdebt{
+    font-size: 1.5vw;
+    grid-row-start: 3;
 }
 
 .loanbutton{
@@ -106,17 +109,42 @@ body{
     grid-column-start:1;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    
+}
+.gridforlaptopnameanddescription{
+    grid-row-start: 1;
+    grid-column-start:2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(2, 1fr);
 }
 .laptopname{
     font-size: 2.5vw;
     font-weight: bold;
-    grid-column-start:2;
-    grid-column-end: 3;
+    grid-row-start: 1;
 }
 .laptopdescription{
     font-size: 2vw;
-    grid-column-start:2;
-    grid-column-end: 3;
-    margin-top: -20vw;
+    grid-row-start: 2;
+}
+
+.gridforlaptoppriceandbuy{
+    grid-row-start: 1;
+    grid-column-start:3;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(3, 1fr);
+}
+.laptopprice{
+    font-size: 2.5vw;
+    font-weight: bold;
+    grid-row-start: 1;
+    text-align: center;
+}
+.buybutton{
+    font-size: 1.5vw;
+    grid-row-start: 3;
+    text-align: center;
 }

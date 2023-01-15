@@ -8,6 +8,11 @@ const laptopSpecElement = document.getElementById("laptopspec")
 const laptopNameElement = document.getElementById("laptopname")
 const laptopDescriptionElement = document.getElementById("laptopdescription")
 const laptopImageElement = document.getElementById("laptopimage")
+const laptopPriceElement = document.getElementById("laptopprice")
+
+const textDebtElement = document.getElementById("textdebt")
+
+textDebtElement.style.visibility = "hidden";
 
 const laptops = await fetchPosts()
 console.log(laptops)
@@ -31,6 +36,7 @@ const handlerLaptopChange = e => {
     laptopSpecElement.innerText = selectedLaptop.specs;
     laptopNameElement.innerText = selectedLaptop.title;
     laptopDescriptionElement.innerHTML = selectedLaptop.description;
+    laptopPriceElement.innerHTML = selectedLaptop.price + " Swedish Crowns";
     //only id 5 is using jpg and doesnt exist. replace to PNG
     if(selectedLaptop.id === 5){
         laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image.replace(".jpg", ".png");

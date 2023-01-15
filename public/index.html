@@ -15,6 +15,7 @@
         <div class="content-m">
             <label class="labels">Banker</label>
             <text class="textmoney">Balance</text>
+            <text class="textdebt" id="textdebt">Debt</text>
             <button class="loanbutton" id="loanbutton"> Get a loan</button>
         </div>
         <div class="content-m">
@@ -31,11 +32,16 @@
         </div>
         <div class="content-l">
             <img class="laptopimage" id="laptopimage"></img>
-            <text class="laptopname" id="laptopname"></text>
-            <text class="laptopdescription" id="laptopdescription"></text>
-            <text class="laptopprice" id="laptopprice"></text>
-            <button class="buybutton" id="buybutton"></button>
+            <div class="gridforlaptopnameanddescription">
+                <text class="laptopname" id="laptopname"></text>
+                <text class="laptopdescription" id="laptopdescription"></text>
+            </div>
+            <div class="gridforlaptoppriceandbuy">
+                <text class="laptopprice" id="laptopprice"></text>
+                <button class="buybutton" id="buybutton">Buy</button>
+            </div>
         </div>
+        
         
     </div>
    <script src="/public/static/js/app.js" type="module"></script>
