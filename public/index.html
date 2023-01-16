@@ -15,14 +15,18 @@
         <div class="content-m">
             <label class="labels">Banker</label>
             <text class="textmoney">Balance</text>
+            <text class="bankvalue" id="bankvalue"></text>
             <text class="textdebt" id="textdebt">Debt</text>
+            <text class="debtvalue" id="debtvalue"></text>
             <button class="loanbutton" id="loanbutton"> Get a loan</button>
         </div>
         <div class="content-m">
             <label class="labels">Work</label>
             <text class="textmoney">Pay</text>
             <button class="bankbutton" id="bankbutton"> Bank</button>
-            <button class="paybutton" id="paybutton"> Pay</button>
+            <button class="workbutton" id="workbutton"> Work</button>
+            <button class="repaydebtbutton" id="repaydebtbutton"> RepayDebt</button>
+            <text class="payvalue" id="payvalue"></text>
         </div>
         <div class="content-m">
             <label class="labels">Laptop</label>
@@ -38,12 +42,18 @@
             </div>
             <div class="gridforlaptoppriceandbuy">
                 <text class="laptopprice" id="laptopprice"></text>
+                <text class="nomoneytext" id="nomoneytext">Not enough Money</text>
                 <button class="buybutton" id="buybutton">Buy</button>
             </div>
         </div>
-        
+        <div class="content-list">
+            <label class="labels">Computer You Own</label>
+            <ul class="ownedcomputer" id="ownedcomputer">
+        </div>
         
     </div>
+
    <script src="/public/static/js/app.js" type="module"></script>
+
 </body>
 </html>
