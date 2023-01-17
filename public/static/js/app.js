@@ -1,4 +1,4 @@
-import fetchLaptops from "./api/get.js";
+import fetchLaptops from "./api/getlaptops.js";
 
 const laptopsElement = document.getElementById("laptops");
 const loanButtonElement = document.getElementById("loanbutton")
@@ -58,15 +58,19 @@ const handlerLaptopChange = e => {
     laptopNameElement.innerText = selectedLaptop.title;
     laptopDescriptionElement.innerHTML = selectedLaptop.description;
     laptopPriceElement.innerHTML = selectedLaptop.price + " kr";;
-    //only id 5 is using jpg and doesnt exist. replace to PNG
-    if(selectedLaptop.id === 5){
-        laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image.replace(".jpg", ".png");
-    }
-    else{
-        laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image;
-    }
     
+
+    laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image; 
+    //if image wont load
+    laptopImageElement.onerror=imageNotFound;
 }
+
+//if image wont load, give an alert
+function imageNotFound() {
+    alert("Image not found")
+
+}
+
 //function to load up a infomartion at start of the website
 function startwithinformation(){
     const selectedLaptop = laptops[0];
