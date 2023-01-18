@@ -21,16 +21,16 @@ const debtValueElement = document.getElementById("debtvalue")
 const nomMoneyTextElement = document.getElementById("nomoneytext")
 
 textDebtElement.style.visibility = "hidden";
-debtValueElement.style.visibility ="hidden";
-repayDebtButtonElement.style.visibility ="hidden";
-nomMoneyTextElement.style.visibility ="hidden";
+debtValueElement.style.visibility = "hidden";
+repayDebtButtonElement.style.visibility = "hidden";
+nomMoneyTextElement.style.visibility = "hidden";
 
 let balance = 0;
-let work =0;
-let totalloan =0;
+let work = 0;
+let totalloan = 0;
 
-payValueElement.innerHTML=work +"kr";
-bankValueElement.innerHTML=balance +"kr";
+payValueElement.innerHTML = work + "kr";
+bankValueElement.innerHTML = balance + "kr";
 
 //fetch data of all the laptops
 const laptops = await fetchLaptops()
@@ -57,12 +57,13 @@ const handlerLaptopChange = e => {
     laptopSpecElement.innerText = selectedLaptop.specs;
     laptopNameElement.innerText = selectedLaptop.title;
     laptopDescriptionElement.innerHTML = selectedLaptop.description;
+    //hardcode Currency, no currency in data.
     laptopPriceElement.innerHTML = selectedLaptop.price + " kr";;
-    
 
-    laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image; 
+
+    laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/" + selectedLaptop.image;
     //if image wont load
-    laptopImageElement.onerror=imageNotFound;
+    laptopImageElement.onerror = imageNotFound;
 }
 
 //if image wont load, give an alert
@@ -71,124 +72,126 @@ function imageNotFound() {
 
 }
 
-//function to load up a infomartion at start of the website
-function startwithinformation(){
+//function to load up a infomartion at start of the website, so that website wont be empty
+function startwithinformation() {
     const selectedLaptop = laptops[0];
     laptopSpecElement.innerText = selectedLaptop.specs;
     laptopNameElement.innerText = selectedLaptop.title;
     laptopDescriptionElement.innerHTML = selectedLaptop.description;
-    laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/"+selectedLaptop.image;
+    laptopImageElement.src = "https://hickory-quilled-actress.glitch.me/" + selectedLaptop.image;
+
     laptopPriceElement.innerHTML = selectedLaptop.price + " kr";
 }
 
 //main logic function for the program
 const handleMoney = (e) => {
     let element = e.target
-    
+
     //if loan button is clicked
-    if(element.id === "loanbutton"){
+    if (element.id === "loanbutton") {
         //how much you wanna loan
-        var loanvalue = Number(prompt("please enter your loan amount","0"));
+        var loanvalue = Number(prompt("please enter your loan amount", "0"));
 
         //Check if u have a loan already
-        if(totalloan===0){
+        if (totalloan === 0) {
             //Loan up to 2times your balance
-            if(loanvalue <= 2*balance){
-            
+            if (loanvalue <= 2 * balance && loanvalue > 0) {
+
                 balance += loanvalue;
-                totalloan +=loanvalue;
-                bankValueElement.innerHTML=balance +"kr"; 
+                totalloan += loanvalue;
+                bankValueElement.innerHTML = balance + "kr";
             }
+
         }
         //if u cant loan nothing happends
-        else{           
+        else {
         }
     }
 
     //work button pressed, and give you 100kr
-    else if(element.id === "workbutton"){
+    else if (element.id === "workbutton") {
         work += 100;
-        payValueElement.innerHTML=work +"kr";
+        payValueElement.innerHTML = work + "kr";
     }
     //bank button press
-    else if(element.id === "bankbutton"){
+    else if (element.id === "bankbutton") {
         //check if u have a loan, if u do pay 10% of ur work pay into debt and 90% goes to ur bank
-        if(totalloan>0){
-            totalloan -= work*.1
+        if (totalloan > 0) {
+            totalloan -= work * .1
             //check if you the value you paid is more then totalloan, refund the extra to the bank.
-            if(totalloan<0){
-                balance += work*0.9;
+            if (totalloan < 0) {
+                balance += work * 0.9;
                 console.log(totalloan);
                 balance -= totalloan;
                 totalloan = 0;
             }
             //90% of ur salary to ur bank balance if you still have debt.
-            else{
-                balance += work*0.9;
-            } 
+            else {
+                balance += work * 0.9;
+            }
             //reset salary
             work = 0;
-            payValueElement.innerHTML=work +"kr";
-            bankValueElement.innerHTML=balance +"kr";
+            payValueElement.innerHTML = work + "kr";
+            bankValueElement.innerHTML = balance + "kr";
         }
         //if you didnt have any debt all money goes to the bank
-        else{
+        else {
             balance += work;
             work = 0;
-            payValueElement.innerHTML=work +"kr";
-            bankValueElement.innerHTML=balance +"kr";
+            payValueElement.innerHTML = work + "kr";
+            bankValueElement.innerHTML = balance + "kr";
         }
 
     }
     //if repaydebt button was clicked, use all ur salary to pay off the debt
-    else if(element.id === "repaydebtbutton"){
+    else if (element.id === "repaydebtbutton") {
         totalloan -= work;
-        if(totalloan<0){
+        if (totalloan < 0) {
             balance -= totalloan;
             totalloan = 0;
         }
-        
+
         work = 0;
-        debtValueElement.innerHTML=totalloan +"kr";
-        payValueElement.innerHTML=work +"kr";
-        bankValueElement.innerHTML=balance +"kr";
+        debtValueElement.innerHTML = totalloan + "kr";
+        payValueElement.innerHTML = work + "kr";
+        bankValueElement.innerHTML = balance + "kr";
     }
     //buy button pressed
-    else if(element.id === "buybutton"){
+    else if (element.id === "buybutton") {
         //check if have enough money to buy
-        if(balance >= Number(laptopPriceElement.innerHTML.replace(" kr",""))){
+        if (balance >= Number(laptopPriceElement.innerHTML.replace(" kr", ""))) {
             //remove kr from the string and convert to number
-            balance -= Number(laptopPriceElement.innerHTML.replace(" kr",""));
-            bankValueElement.innerHTML=balance +"kr";
-            
+            balance -= Number(laptopPriceElement.innerHTML.replace(" kr", ""));
+            bankValueElement.innerHTML = balance + "kr";
+
             //create list of what you own
             const computers = document.createElement("li");
             computers.innerHTML = laptopNameElement.innerText;
             console.log(computers)
             computerownedElement.appendChild(computers)
-            nomMoneyTextElement.style.visibility ="hidden"
+            nomMoneyTextElement.style.visibility = "hidden"
         }
         //if you didnt have any money No Money text will pop up
-        else{
-            nomMoneyTextElement.style.visibility ="visible"
+        else {
+            nomMoneyTextElement.style.visibility = "visible"
         }
     }
     //fail safe.
-    else{
+    else {
         console.log("failsafe no button pressed")
     }
     //if you have debt buttons and text will pop up
-    if(totalloan>0){
+    if (totalloan > 0) {
         textDebtElement.style.visibility = "visible";
-        debtValueElement.style.visibility ="visible";
-        repayDebtButtonElement.style.visibility="visible";
+        debtValueElement.style.visibility = "visible";
+        repayDebtButtonElement.style.visibility = "visible";
         debtValueElement.innerHTML = totalloan + "kr"
     }
     //if you dont have any loan/debt hide the text and buttons.
-    else{
+    else {
         textDebtElement.style.visibility = "hidden";
-        debtValueElement.style.visibility ="hidden";
-        repayDebtButtonElement.style.visibility ="hidden"
+        debtValueElement.style.visibility = "hidden";
+        repayDebtButtonElement.style.visibility = "hidden"
     }
 }
 
@@ -202,6 +205,3 @@ laptopsElement.addEventListener("change", handlerLaptopChange)
 
 //start the site with laptop information
 startwithinformation()
-
-
-

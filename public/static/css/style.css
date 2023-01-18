@@ -3,41 +3,43 @@ header {
     background-color: #333;
     color: white;
 }
-body{
+
+body {
     margin: 0;
 }
-.headertitle{
+
+.headertitle {
     margin-left: 3vw;
     font-size: 2vw;
 }
 
 .container {
-    width:100vw;
+    width: 100vw;
     height: 50vw;
-    padding:10px;
+    padding: 10px;
 
     display: grid;
     grid-template-columns: repeat(3, 0.2fr);
-    grid-template-rows:  repeat(2, 0.2fr);
-    
-    gap:10px;
+    grid-template-rows: repeat(2, 0.2fr);
+
+    gap: 10px;
 
     box-sizing: border-box;
 }
 
-.content-m{
+.content-m {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows:  repeat(5, 1fr);
-    gap:10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
     padding: 10px;
     border: 1px solid black;
 }
 
-.content-l{
+.content-l {
     display: grid;
-    gap:1vw;
-    grid-template-columns: repeat(3,1fr);
+    gap: 1vw;
+    grid-template-columns: repeat(3, 1fr);
     grid-row-start: 0;
     grid-column-start: 1;
     grid-column-end: 4;
@@ -45,29 +47,31 @@ body{
     border: 1px solid black;
 }
 
-.labels{
+.labels {
     font-size: 2vw;
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
 }
 
-.textmoney{
+.textmoney {
     font-size: 1.5vw;
     grid-row-start: 2;
 }
-.textdebt{
+
+.textdebt {
     font-size: 1.5vw;
     grid-row-start: 3;
 }
-.debtvalue{
+
+.debtvalue {
     font-size: 1.5vw;
     grid-row-start: 3;
     grid-column-start: 2;
     text-align: end;
 }
 
-.loanbutton{
+.loanbutton {
     font-size: 1.5vw;
     grid-row-start: 5;
     grid-column-start: 1;
@@ -75,25 +79,28 @@ body{
     text-align: center;
 }
 
-.bankbutton{
+.bankbutton {
     font-size: 1.5vw;
     grid-row-start: 5;
     grid-column-start: 1;
     text-align: center;
 }
-.bankvalue{
+
+.bankvalue {
     font-size: 1.5vw;
     grid-row-start: 2;
     grid-column-start: 2;
     text-align: end;
 }
-.workbutton{
+
+.workbutton {
     font-size: 1.5vw;
     grid-row-start: 5;
     grid-column-start: 2;
     text-align: center;
 }
-.repaydebtbutton{
+
+.repaydebtbutton {
     font-size: 1.5vw;
     grid-row-start: 4;
     grid-column-start: 1;
@@ -101,27 +108,29 @@ body{
     text-align: center;
 }
 
-.payvalue{
+.payvalue {
     font-size: 1.5vw;
     grid-column-start: 2;
     text-align: end;
 }
 
-.laptopsselect{
+.laptopsselect {
     font-size: 1.5vw;
     height: 2vw;
     grid-column-start: 1;
     grid-column-end: 3;
     text-align: center;
 }
-.featuretext{
+
+.featuretext {
     font-size: 1.5vw;
     font-weight: bold;
     grid-row-start: 3;
     grid-column-start: 1;
     grid-column-end: 3;
 }
-.laptopspec{
+
+.laptopspec {
     font-size: 1.5vw;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -129,70 +138,76 @@ body{
     grid-row-end: 6;
     margin-top: 1.5vw;
 }
-.laptopimage{
-    grid-column-start:1;
+
+.laptopimage {
+    grid-column-start: 1;
     width: 100%;
     height: 100%;
-    
 }
-.gridforlaptopnameanddescription{
+
+.gridforlaptopnameanddescription {
     grid-row-start: 1;
-    grid-column-start:2;
+    grid-column-start: 2;
     grid-column-end: 3;
     display: grid;
-    grid-template-columns:1fr;
-    grid-template-rows:repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
 }
-.laptopname{
+
+.laptopname {
     font-size: 2.5vw;
     font-weight: bold;
     grid-row-start: 1;
 }
-.laptopdescription{
+
+.laptopdescription {
     font-size: 2vw;
     grid-row-start: 2;
 }
 
-.gridforlaptoppriceandbuy{
+.gridforlaptoppriceandbuy {
     grid-row-start: 1;
-    grid-column-start:3;
+    grid-column-start: 3;
     grid-column-end: 4;
     display: grid;
-    grid-template-columns:1fr;
-    grid-template-rows:repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
 }
-.laptopprice{
+
+.laptopprice {
     font-size: 2.5vw;
     font-weight: bold;
     grid-row-start: 1;
     text-align: center;
 }
 
-.nomoneytext{
+.nomoneytext {
     font-size: 2vw;
-    color: red ;
+    color: red;
     text-align: center;
 }
 
-.buybutton{
+.buybutton {
     font-size: 1.5vw;
     grid-row-start: 3;
     text-align: center;
 }
 
 
-.content-list{
+.content-list {
     display: grid;
-    grid-template-columns:1fr ;
-    grid-template-rows:1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     grid-column-start: 2;
-    gap:10px;
+    gap: 10px;
     padding: 10px;
     border: 1px solid black;
 }
-.labels{
+
+.labels {
     font-size: 2vw;
 }
-.ownedcomputer{
+
+.ownedcomputer {
     font-size: 2vw;
 }
