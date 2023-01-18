@@ -26,10 +26,10 @@ repayDebtButtonElement.style.visibility = "hidden";
 nomMoneyTextElement.style.visibility = "hidden";
 
 let balance = 0;
-let work = 0;
+let salary = 0;
 let totalloan = 0;
 
-payValueElement.innerHTML = work + "kr";
+payValueElement.innerHTML = salary + "kr";
 bankValueElement.innerHTML = balance + "kr";
 
 //fetch data of all the laptops
@@ -94,7 +94,7 @@ const handleMoney = (e) => {
 
         //Check if u have a loan already
         if (totalloan === 0) {
-            //Loan up to 2times your balance
+            //Loan up to 2times your balance & loanvalue cant be a negative number
             if (loanvalue <= 2 * balance && loanvalue > 0) {
 
                 balance += loanvalue;
@@ -110,50 +110,50 @@ const handleMoney = (e) => {
 
     //work button pressed, and give you 100kr
     else if (element.id === "workbutton") {
-        work += 100;
-        payValueElement.innerHTML = work + "kr";
+        salary += 100;
+        payValueElement.innerHTML = salary + "kr";
     }
     //bank button press
     else if (element.id === "bankbutton") {
-        //check if u have a loan, if u do pay 10% of ur work pay into debt and 90% goes to ur bank
+        //check if you have a loan, if u do. Pay 10% of ur work pay into debt and 90% goes to ur bank
         if (totalloan > 0) {
-            totalloan -= work * .1
+            totalloan -= salary * .1
             //check if you the value you paid is more then totalloan, refund the extra to the bank.
             if (totalloan < 0) {
-                balance += work * 0.9;
+                balance += salary * 0.9;
                 console.log(totalloan);
                 balance -= totalloan;
                 totalloan = 0;
             }
             //90% of ur salary to ur bank balance if you still have debt.
             else {
-                balance += work * 0.9;
+                balance += salary * 0.9;
             }
             //reset salary
-            work = 0;
-            payValueElement.innerHTML = work + "kr";
+            salary = 0;
+            payValueElement.innerHTML = salary + "kr";
             bankValueElement.innerHTML = balance + "kr";
         }
         //if you didnt have any debt all money goes to the bank
         else {
-            balance += work;
-            work = 0;
-            payValueElement.innerHTML = work + "kr";
+            balance += salary;
+            salary = 0;
+            payValueElement.innerHTML = salary + "kr";
             bankValueElement.innerHTML = balance + "kr";
         }
 
     }
     //if repaydebt button was clicked, use all ur salary to pay off the debt
     else if (element.id === "repaydebtbutton") {
-        totalloan -= work;
+        totalloan -= salary;
         if (totalloan < 0) {
             balance -= totalloan;
             totalloan = 0;
         }
 
-        work = 0;
+        salary = 0;
         debtValueElement.innerHTML = totalloan + "kr";
-        payValueElement.innerHTML = work + "kr";
+        payValueElement.innerHTML = salary + "kr";
         bankValueElement.innerHTML = balance + "kr";
     }
     //buy button pressed
