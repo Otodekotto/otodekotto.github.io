@@ -1,2 +1,2 @@
 # Assignment
- Week one frontend problem https://otodekotto.github.io/public/index
+ Week one frontend problem https://otodekotto.github.io/public
